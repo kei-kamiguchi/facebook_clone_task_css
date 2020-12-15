@@ -1,0 +1,20 @@
+<div class="post-edit">
+  <h3 class="page-title">投稿を編集</h3>
+  <hr>
+  <div class="post-info">
+    <%= image_tag current_user.profile_image.url(:small_thumb), class: "icon" if current_user.profile_image && current_user.profile_image.url %>
+    <ul>
+      <li class="user-name"><%= current_user.name %></li>
+    </ul>
+  </div>
+  <%= form_with(model:@post, local:true) do |form| %>
+    <%= form.text_area :content, class: "form-content" %>
+    <%= image_tag(@post.image.url) if @post.image && @post.image.url %>
+    <%= form.hidden_field :image_cache %>
+    <div class="btn-area">
+      <%= form.label :image, "画像を変更", class: "image_input_btn" %>
+      <%= form.file_field :image, class: "image_form" %>
+      <%= form.submit "編集", class: "submit-btn" %>
+    </div>
+  <% end %>
+</div>

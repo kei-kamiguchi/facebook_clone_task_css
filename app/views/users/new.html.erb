@@ -1,4 +1,4 @@
-<h1>Sign up</h1>
+<div class="users-new">
 <% if @user.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@user.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:</h2>
@@ -9,14 +9,21 @@
     </ul>
   </div>
 <% end %>
-<%= form_with(model: @user, local: true) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-  <%= f.submit "Create my account" %>
-<% end %>
+  <div class="wrap">
+    <div class="logo">
+      <%= image_tag "entry_logo.svg", width: "300px", class: "logo-img" %>
+    </div>
+    <h2>Facebookを使うと、友達や同僚、同級生、仲間たちとつながりを深められます。ケータイ、スマートフォンからもアクセスできます。</h2>
+  </div>
+  <div class="form-area">
+    <%= form_with(model: @user, local: true) do |f| %>
+      <%= f.text_field :name, placeholder: "名前:", class: "form" %>
+      <%= f.email_field :email, placeholder: "メールアドレス:", class: "form" %>
+      <%= f.password_field :password, placeholder: "パスワード", class: "form" %>
+      <%= f.password_field :password_confirmation, placeholder: "パスワード確認", class: "form" %>
+      <%= f.submit "アカウント登録", class: "submit-btn" %>
+    <% end %>
+    <hr>
+    <%= link_to "登録したアカウントでログイン", new_session_path, class: "new-session-link" %>
+  </div>
+</div>

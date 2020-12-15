@@ -1,2 +1,28 @@
-<h1><%= @user.name %>のページ</h1>
-<p>メールアドレス: <%= @user.email %></p>
+<div class="top">
+  <div class="background">
+  <%= image_tag current_user.background_image.url(:thumb), class: "background_image" if current_user.background_image && current_user.background_image.url %>
+  <%= form_with(model:@user, local:true, method: :put) do |form| %>
+    <%= form.label :background_image, "カバー写真を編集", class: "image_input_btn" %>
+    <%= form.file_field :background_image, class: "image_form" %>
+    <%= form.submit "変更を保存", class: "image_submit_btn" %>
+  <% end %>
+  </div>
+  <h1><%= @user.name %></h1>
+  <hr>
+  <div class="top-link"><%= link_to "プロフィールを編集する", edit_user_path(@user), class: "edit-profile-btn" %></div>
+</div>
+
+<% @posts.each do |post| %>
+  <div class="show-main">
+    <div class="post-info">
+      <%= image_tag current_user.profile_image.url(:small_thumb), class: "icon" if current_user.profile_image && current_user.profile_image.url %>
+      <ul>
+        <li class="user-name"><%= current_user.name %></li>
+        <li class="post-created-at"><%= time_ago_in_words(post.created_at) %></li>
+      </ul>
+      <%= link_to "編集", edit_post_path(post), class: "edit-post-link" %>
+    </div>
+    <p class="post-content"><%= post.content %></p>
+    <%= image_tag post.image.url if post.image && post.image.url %>
+  </div>
+<% end %>

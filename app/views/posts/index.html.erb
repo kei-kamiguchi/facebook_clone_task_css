@@ -1,0 +1,14 @@
+<% @posts.each do |post| %>
+  <div class="post-index">
+    <div class="post-info">
+      <%= image_tag current_user.profile_image.url(:small_thumb), class: "icon" if current_user.profile_image && current_user.profile_image.url %>
+      <ul>
+        <li class="user-name"><%= current_user.name %></li>
+        <li class="post-created-at"><%= time_ago_in_words(post.created_at) %></li>
+      </ul>
+      <%= link_to "編集", edit_post_path(post), class: "edit-post-link" %>
+    </div>
+    <p class="post-content"><%= post.content %></p>
+    <%= image_tag post.image.url if post.image && post.image.url %>
+  </div>
+<% end %>
