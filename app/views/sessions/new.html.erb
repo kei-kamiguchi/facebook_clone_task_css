@@ -11,7 +11,7 @@
       <%= f.password_field :password, placeholder: "パスワード", class: "form" %>
       <%= f.submit "ログイン", class: "submit-btn" %>
     <% end %>
-    <%= link_to "パスワードを忘れた場合", edit_user_path(User.find(1)), class: "forget-password-link" %>
+    <%= link_to "パスワードを忘れた場合", new_user_path, class: "forget-password-link" %>
     <hr>
     <%= link_to "新しいアカウントを作成", new_user_path, class: "new-users-link" %>
   </div>
