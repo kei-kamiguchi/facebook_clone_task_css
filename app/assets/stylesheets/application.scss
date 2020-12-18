@@ -1,0 +1,162 @@
+@import "bootstrap";
+
+.wrap {
+  background-color: #f0f2f5;
+  width: 100%;
+  min-height: 895px;
+  position: relative;
+  text-align: center;
+  .navbar {
+    background-color: #ffffff;
+    height: 55px;
+    padding: 0;
+  }
+}
+.sessions-new {
+  margin: 80px auto 65px;
+  display: flex;
+  .form-group {
+    height: 240px;
+    text-align: left;
+    padding: 20px;
+    margin: 50px 20px 0;
+    background-color: #ffffff;
+    .form-control {
+      margin: 0 auto 10px;
+      width: 400px;
+    }
+    .submit-btn {
+      width: 400px;
+    }
+  }
+}
+.app-outline {
+  width: 600px;
+  height: 400px;
+  padding: 50px 0 0 50px;
+  text-align: left;
+
+}
+.app-title {
+  color: #1877f2;
+  font-size: 4rem;
+  font-weight: bold;
+  width: 520px;
+}
+.app-content {
+  font-size: 1.8rem;
+  width: 520px;
+}
+.users-new {
+  height: 415px;
+  margin: 80px auto 65px;
+  display: flex;
+  .form-group {
+    text-align: left;
+    padding: 20px 20px 0;
+    margin-left: 20px;
+    background-color: #ffffff;
+    .form-control {
+      margin: 0 auto 10px;
+      width: 400px;
+    }
+    .submit-btn {
+      width: 400px;
+    }
+  }
+}
+.posts-index {
+  margin: 0 auto;
+  padding-bottom: 175px;
+  .posts-main {
+    text-align: left;
+    width: 740px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+  }
+  .post-info {
+    position: relative;
+    list-style: none;
+    padding: 0;
+    width: 700px;
+    height: 48px;
+  }
+  .edit-post-link {
+    position: absolute;
+    right: 0;
+    top: 12px;
+  }
+}
+.posts-edit {
+  margin: 0 auto;
+  padding-bottom: 175px;
+  .posts-main {
+    width: 740px;
+    margin: 20px auto;
+    padding: 20px 20px 5px;
+    background-color: #ffffff;
+  }
+}
+.posts-new {
+  margin: 0 auto;
+  padding-bottom: 175px;
+  .posts-main {
+    width: 740px;
+    margin: 20px auto;
+    padding: 20px 20px 5px;
+    background-color: #ffffff;
+  }
+}
+.users-show {
+  margin: 0 auto;
+  padding-bottom: 175px;
+  .posts-main {
+    text-align: left;
+    width: 740px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+  }
+  .post-info {
+    position: relative;
+    list-style: none;
+    padding: 0;
+    width: 700px;
+    height: 48px;
+  }
+  .edit-post-link {
+    position: absolute;
+    right: 0;
+    top: 12px;
+  }
+}
+.users-index {
+  margin: 0 auto;
+  padding-bottom: 175px;
+  .users-main {
+    text-align: left;
+    width: 740px;
+    margin: 20px auto;
+    padding: 20px 20px 0;
+    background-color: #ffffff;
+  .user-list {
+    padding-bottom: 20px;
+  }
+  }
+}
+.footer{
+  background-color: #ffffff;
+  height: 175px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+.footer p {
+  font-size: 1rem;
+  color: #dddddd;
+  margin: 0;
+}
+.navbar-nav {
+  width: 100%;
+}
