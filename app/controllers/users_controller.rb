@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :correct_user, only: [:show]
   skip_before_action :login_required, only: [:new, :create]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
@@ -22,7 +21,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @posts = Post.where(user_id: current_user.id)
+    @posts = Post.where(user_id: @user.id)
   end
 
   def edit
@@ -49,10 +48,5 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
-  end
-
-  def correct_user
-    @user = User.find(params[:id])
-    redirect_to current_user unless current_user?(@user)
   end
 end
