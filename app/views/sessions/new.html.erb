@@ -1,18 +1,17 @@
 <div class="sessions-new">
-  <div class="wrap">
-    <div class="logo">
-      <%= image_tag "entry_logo.svg", width: "300px", class: "logo-img" %>
-    </div>
-    <h2>Facebookを使うと、友達や同僚、同級生、仲間たちとつながりを深められます。ケータイ、スマートフォンからもアクセスできます。</h2>
+  <div class="app-outline">
+    <h1 class="app-title">facebook</h1>
+    <h2 class="app-content">Facebookを使うと、友達や同僚、同級生、仲間たちとつながりを深められます。ケータイ、スマートフォンからもアクセスできます。</h2>
   </div>
-  <div class="form-area">
+  <div class="form-group">
     <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
-      <%= f.email_field :email, placeholder: "メールアドレス:", class: "form" %>
-      <%= f.password_field :password, placeholder: "パスワード", class: "form" %>
-      <%= f.submit "ログイン", class: "submit-btn" %>
+      <%= f.label :email, "メールアドレス" %>
+      <%= f.email_field :email, class: "form-control" %>
+      <%= f.label :password, "パスワード" %>
+      <%= f.password_field :password, class: "form-control" %>
+      <div class="submit-btn text-right">
+        <%= f.submit "ログイン", class: "btn btn-primary" %>
+      </div>
     <% end %>
-    <%= link_to "パスワードを忘れた場合", new_user_path, class: "forget-password-link" %>
-    <hr>
-    <%= link_to "新しいアカウントを作成", new_user_path, class: "new-users-link" %>
   </div>
 </div>

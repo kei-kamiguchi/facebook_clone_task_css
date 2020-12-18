@@ -2,12 +2,6 @@
   <h3 class="page-title">プロフィールを編集</h3>
   <hr>
   <%= form_with(model:@user, local:true) do |form| %>
-    <h3><%= form.label :profile_image, "プロフィール写真" %><%= form.label :profile_image, "編集", class: "image_input_btn" %></h3>
-    <%= form.file_field :profile_image, class: "image_form" %>
-    <%= image_tag current_user.profile_image.url(:thumb), class: "icon" if current_user.profile_image && current_user.profile_image.url %>
-    <h3><%= form.label :background_image, "カバー写真" %><%= form.label :background_image, "編集", class: "image_input_btn" %></h3>
-    <%= form.file_field :background_image, class: "image_form" %>
-    <%= image_tag current_user.background_image.url(:small_thumb), class: "background_image" if current_user.background_image && current_user.background_image.url %>
     <h3><%= form.label :name, "名前" %></h3>
     <%= form.text_field :name, class: "form" %>
     <h3><%= form.label :email, "メールアドレス" %></h3>

@@ -10,16 +10,44 @@
   </head>
 
   <body>
-  <header class="header">
-    <% unless request.path == '/sessions/new' || request.path == '/users/new' || request.path == '/sessions' || request.path == '/users' %>
-      <%= render partial: "layouts/header" %>
-    <% end %>
-  </header>
-  <div class="container">
-    <%= yield %>
-  </div>
-  <footer class="footer">
-    <p>Copyright © 2018 DIVE INC All RIGHTS RESERVED.</p>
-  </footer>
+    <div class="wrap">
+        <nav class="navbar navbar-expand-sm">
+          <a href="/posts" class="navbar-brand">
+            <%= image_tag "facebooklogoo1-1.jpg", width: "85px", class: "logo" %>
+          </a>
+          <ul class="nav navbar-nav justify-content-end mr-5">
+          <% if logged_in? %>
+            <li class="nav-item">
+              <%= link_to "作成", new_post_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "投稿一覧", posts_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ユーザ一覧", users_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "マイページ", user_path(current_user.id), class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ログアウト", session_path(current_user.id), method: :delete, class: "nav-link" %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to "サインイン", new_user_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ログイン", new_session_path, class: "nav-link" %>
+            </li>
+          <% end %>
+          </ul>
+        </nav>
+      <div class="container">
+        <%= yield %>
+      </div>
+      <footer class="footer text-center d-flex align-items-center justify-content-center">
+        <p>Copyright © 2018 DIVE INC All RIGHTS RESERVED.</p>
+      </footer>
+    </div>
   </body>
 </html>

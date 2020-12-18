@@ -1,29 +1,21 @@
 <div class="users-new">
-<% if @user.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:</h2>
-    <ul>
-    <% @user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-    </ul>
+  <div class="app-outline">
+    <h1 class="app-title">facebook</h1>
+    <h2 class="app-content">Facebookを使うと、友達や同僚、同級生、仲間たちとつながりを深められます。ケータイ、スマートフォンからもアクセスできます。</h2>
   </div>
-<% end %>
-  <div class="wrap">
-    <div class="logo">
-      <%= image_tag "entry_logo.svg", width: "300px", class: "logo-img" %>
-    </div>
-    <h2>Facebookを使うと、友達や同僚、同級生、仲間たちとつながりを深められます。ケータイ、スマートフォンからもアクセスできます。</h2>
-  </div>
-  <div class="form-area">
+  <div class="form-group">
     <%= form_with(model: @user, local: true) do |f| %>
-      <%= f.text_field :name, placeholder: "名前:", class: "form" %>
-      <%= f.email_field :email, placeholder: "メールアドレス:", class: "form" %>
-      <%= f.password_field :password, placeholder: "パスワード", class: "form" %>
-      <%= f.password_field :password_confirmation, placeholder: "パスワード確認", class: "form" %>
-      <%= f.submit "アカウント登録", class: "submit-btn" %>
+      <%= f.label :email, "名前" %>
+      <%= f.text_field :name, class: "form-control" %>
+      <%= f.label :email, "メールアドレス" %>
+      <%= f.email_field :email, class: "form-control" %>
+      <%= f.label :password, "パスワード" %>
+      <%= f.password_field :password, class: "form-control" %>
+      <%= f.label :password, "パスワード確認用" %>
+      <%= f.password_field :password_confirmation, class: "form-control" %>
+      <div class="submit-btn text-right">
+        <%= f.submit "ログイン", class: "btn btn-primary" %>
+      </div>
     <% end %>
-    <hr>
-    <%= link_to "登録したアカウントでログイン", new_session_path, class: "new-session-link" %>
   </div>
 </div>

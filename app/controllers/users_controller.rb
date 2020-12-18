@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   before_action :correct_user, only: [:show]
   skip_before_action :login_required, only: [:new, :create]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+
+  def index
+    @users = User.all
+  end
 
   def new
     @user = User.new
@@ -17,16 +22,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
     @posts = Post.where(user_id: current_user.id)
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to @user
     else
@@ -34,10 +36,19 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user.destroy
+    redirect_to users_path, notice: "ユーザを削除しました！"
+  end
+
   private
 
+  def set_user
+    @user = User.find(params[:id])
+  end
+
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :profile_image, :profile_image_cache, :background_image, :background_image_cache)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 
   def correct_user
