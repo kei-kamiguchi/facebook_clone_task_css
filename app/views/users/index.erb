@@ -1,12 +1,13 @@
 <div class="users-index">
   <h2 class="mt-4">ユーザ一覧</h2>
   <div class="users-main">
+    <table class="table-hover">
+      <tbody>
     <% @users.each do |user| %>
-      <div class="user-list">
-        <h3><%= user.name %></h3>
-        <%= link_to "確認", user, class: "btn btn-primary" %>
-        <%= link_to "削除", user_path(user), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-secondary" %>
-      </div>
+      <tr><td><%= user.name %></td><td class="text-right"><%= link_to "確認", user, class: "btn btn-primary" %>
+        <%= link_to "削除", user_path(user), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-secondary" %></td></tr>
     <% end %>
+      </tbody>
+    </table>
   </div>
 </div>

@@ -1,5 +1,6 @@
 <div class="users-show">
 <h2 class="mt-4">マイページ</h2>
+<%= link_to "プロフィールを編集", edit_user_path(@user), class: "edit-user-link" %>
 <% @posts.each do |post| %>
   <div class="posts-main">
       <ul class="post-info">

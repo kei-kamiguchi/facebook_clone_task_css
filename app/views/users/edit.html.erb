@@ -1,14 +1,20 @@
-<div class="edit-main">
-  <h3 class="page-title">プロフィールを編集</h3>
-  <hr>
-  <%= form_with(model:@user, local:true) do |form| %>
-    <h3><%= form.label :name, "名前" %></h3>
-    <%= form.text_field :name, class: "form" %>
-    <h3><%= form.label :email, "メールアドレス" %></h3>
-    <%= form.text_field :email, class: "form" %>
-    <h3><%= form.label :password, "パスワード" %></h3>
-    <%= form.password_field :password, placeholder: "新しいパスワード", class: "form" %>
-    <%= form.password_field :password_confirmation, placeholder: "確認用", class: "form" %>
-    <%= form.submit "保存", class: "submit" %>
-  <% end %>
+<div class="users-edit">
+  <h2 class="mt-4">プロフィールを編集</h2>
+  <div class="main">
+    <div class="form-group">
+      <%= form_with(model:@user, local:true) do |form| %>
+        <%= form.label :name, "名前" %>
+        <%= form.text_field :name, class: "form-control mb-3" %>
+        <%= form.label :email, "メールアドレス" %>
+        <%= form.text_field :email, class: "form-control mb-3" %>
+        <%= form.label :password, "パスワード" %>
+        <%= form.password_field :password, placeholder: "新しいパスワード", class: "form-control mb-3" %>
+        <%= form.password_field :password_confirmation, placeholder: "確認用", class: "form-control mb-3" %>
+        <div class="text-right">
+          <%= form.submit "保存", class: "btn btn-primary" %>
+          <%= link_to "削除", user_path(@user), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-secondary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>

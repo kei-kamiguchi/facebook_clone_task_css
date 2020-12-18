@@ -133,14 +133,31 @@
   margin: 0 auto;
   padding-bottom: 175px;
   .users-main {
-    text-align: left;
-    width: 740px;
+    width: 400px;
     margin: 20px auto;
-    padding: 20px 20px 0;
+    padding: 20px;
     background-color: #ffffff;
-  .user-list {
-    padding-bottom: 20px;
   }
+  table {
+    width: 360px;
+    tr {
+      height: 80px;
+      td {
+        font-size: 1.5rem;
+        padding-right: 20px;
+      }
+    }
+  }
+}
+.users-edit {
+  margin: 0 auto;
+  padding-bottom: 175px;
+  .main {
+    text-align: left;
+    width: 500px;
+    margin: 20px auto;
+    padding: 20px 20px 5px;
+    background-color: #ffffff;
   }
 }
 .footer{
