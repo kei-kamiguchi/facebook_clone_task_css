@@ -1,20 +1,19 @@
 <div class="users-edit">
-  <h2 class="mt-4">プロフィールを編集</h2>
-  <div class="main">
-    <div class="form-group">
-      <%= form_with(model:@user, local:true) do |form| %>
-        <%= form.label :name, "名前" %>
-        <%= form.text_field :name, class: "form-control mb-3" %>
-        <%= form.label :email, "メールアドレス" %>
-        <%= form.text_field :email, class: "form-control mb-3" %>
-        <%= form.label :password, "パスワード" %>
-        <%= form.password_field :password, placeholder: "新しいパスワード", class: "form-control mb-3" %>
-        <%= form.password_field :password_confirmation, placeholder: "確認用", class: "form-control mb-3" %>
-        <div class="text-right">
-          <%= form.submit "保存", class: "btn btn-primary" %>
-          <%= link_to "削除", user_path(@user), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-secondary" %>
-        </div>
-      <% end %>
-    </div>
+  <h2>プロフィールを編集</h2>
+  <div class="form">
+    <%= form_with(model:@user, local:true) do |form| %>
+      <ul>
+        <li><%= form.label :name, "名前" %></li>
+        <li><%= form.text_field :name, class: "field" %></li>
+        <li><%= form.label :email, "メールアドレス" %></li>
+        <li><%= form.text_field :email, class: "field" %></li>
+        <li><%= form.label :password, "パスワード" %></li>
+        <li><%= form.password_field :password, placeholder: "新しいパスワード", class: "field" %></li>
+        <li><%= form.password_field :password_confirmation, placeholder: "パスワード確認用", class: "field" %></li>
+        <li class="text-right">
+          <%= form.submit "保存", class: "btn" %>
+        </li>
+      </ul>
+    <% end %>
   </div>
 </div>

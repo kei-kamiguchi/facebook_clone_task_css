@@ -1,10 +1,10 @@
 <div class="users-show">
-<h2 class="mt-4">マイページ</h2>
-<%= link_to "プロフィールを編集", edit_user_path(@user), class: "edit-user-link" %>
+<h2>マイページ</h2>
+<%= link_to "プロフィールを編集", edit_user_path(@user), class: "edit-profile-link" %>
 <% @posts.each do |post| %>
-  <div class="posts-main">
+  <div class="main">
       <ul class="post-info">
-        <li><strong><%= current_user.name %></strong></li>
+        <li class="user-name"><%= current_user.name %></li>
         <li><%= time_ago_in_words(post.created_at) %></li>
         <li><%= link_to "編集", edit_post_path(post), class: "edit-post-link" %></li>
       </ul>

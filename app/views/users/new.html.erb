@@ -1,21 +1,27 @@
-<div class="users-new">
-  <div class="app-outline">
-    <h1 class="app-title">facebook</h1>
-    <h2 class="app-content">Facebookを使うと、友達や同僚、同級生、仲間たちとつながりを深められます。ケータイ、スマートフォンからもアクセスできます。</h2>
+<div class="user-entry">
+  <div class="catch-copy">
+    <h1 class="catch-copy-title">facebook</h1>
+    <h2 class="catch-copy-content">Facebookを使うと、友達や同僚、同級生、仲間たちとつながりを深められます。ケータイ、スマートフォンからもアクセスできます。</h2>
   </div>
-  <div class="form-group">
+  <div class="form">
     <%= form_with(model: @user, local: true) do |f| %>
-      <%= f.label :email, "名前" %>
-      <%= f.text_field :name, class: "form-control" %>
-      <%= f.label :email, "メールアドレス" %>
-      <%= f.email_field :email, class: "form-control" %>
-      <%= f.label :password, "パスワード" %>
-      <%= f.password_field :password, class: "form-control" %>
-      <%= f.label :password, "パスワード確認用" %>
-      <%= f.password_field :password_confirmation, class: "form-control" %>
-      <div class="submit-btn text-right">
-        <%= f.submit "ログイン", class: "btn btn-primary" %>
-      </div>
+      <ul>
+      <li><%= f.label :email, "名前" %></li>
+      <li><%= f.text_field :name, class: "field" %></li>
+
+      <li><%= f.label :email, "メールアドレス" %></li>
+      <li><%= f.email_field :email, class: "field" %></li>
+
+      <li><%= f.label :password, "パスワード" %></li>
+      <li><%= f.password_field :password, class: "field" %></li>
+
+      <li><%= f.label :password, "パスワード確認用" %></li>
+      <li><%= f.password_field :password_confirmation, class: "field" %></li>
+
+      <li class="form-btn">
+        <%= f.submit "ログイン", class: "btn" %>
+      </li>
+      </ul>
     <% end %>
   </div>
 </div>

@@ -1,14 +1,14 @@
 <div class="posts-index">
-  <h2 class="mt-4">投稿一覧</h2>
-<% @posts.each do |post| %>
-  <div class="posts-main">
+  <h2>投稿一覧</h2>
+  <% @posts.each do |post| %>
+    <div class="main">
       <ul class="post-info">
         <li><strong><%= current_user.name %></strong></li>
         <li><%= time_ago_in_words(post.created_at) %></li>
         <li><%= link_to "編集", edit_post_path(post), class: "edit-post-link" %></li>
       </ul>
-    <p class="post-content"><%= post.content %></p>
-    <%= image_tag post.image.url if post.image && post.image.url %>
-  </div>
-<% end %>
+      <p class="post-content"><%= post.content %></p>
+      <%= image_tag post.image.url if post.image && post.image.url %>
+    </div>
+  <% end %>
 </div>
