@@ -1,3 +1,14 @@
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <div class="users-edit">
   <h2>プロフィールを編集</h2>
   <div class="form">
@@ -11,7 +22,7 @@
         <li><%= form.password_field :password, placeholder: "新しいパスワード", class: "field" %></li>
         <li><%= form.password_field :password_confirmation, placeholder: "パスワード確認用", class: "field" %></li>
         <li class="text-right">
-          <%= form.submit "保存", class: "btn" %>
+          <%= form.submit "更新", class: "btn" %>
         </li>
       </ul>
     <% end %>

@@ -14,14 +14,14 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in(@user)
-      redirect_to @user
+      redirect_to @user, notice: "アカウントを登録しました。"
     else
       render :new
     end
   end
 
   def show
-    @posts = Post.where(user_id: @user.id)
+    @posts = Post.where(user_id: @user.id).order(created_at: :desc)
   end
 
   def edit
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to @user
+      redirect_to @user, notice: "アカウント情報を更新しました。"
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    redirect_to users_path, notice: "ユーザを削除しました！"
+    redirect_to users_path, notice: "アカウントを削除しました。"
   end
 
   private

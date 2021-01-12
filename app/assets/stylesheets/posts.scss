@@ -1,7 +1,14 @@
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+}
 .wrap {
+  margin: 0 auto;
   background-color: #f0f2f5;
   width: 100%;
-  min-height: 100vh;
+  min-height: 100%;
   position: relative;
 }
 #navbar {
@@ -31,12 +38,21 @@
     li a {
       text-decoration: none;
       display: block;
+      // color: #0000ee;
     }
   }
 }
+#error_explanation {
+  margin: 0 auto;
+  width: 800px;
+}
+.alert {
+  width: 100%;
+  text-align: center;
+}
 .user-entry{
   width: 1200px;
-  margin: 130px auto 0;
+  margin: 110px auto 0;
   display: flex;
   justify-content: center;
   align-items: center;

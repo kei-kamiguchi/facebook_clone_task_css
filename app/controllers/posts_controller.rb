@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:edit, :destroy, :update]
 
   def index
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :desc)
   end
 
   def new
@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      redirect_to posts_path
+      redirect_to posts_path, notice: "投稿しました。"
     else
       render :new
     end
@@ -23,7 +23,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to posts_path
+      redirect_to posts_path, notice: "投稿内容を編集しました。"
     else
       render :edit
     end
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to posts_path, notice: "削除しました！"
+    redirect_to posts_path, notice: "投稿を削除しました。"
   end
 
   private

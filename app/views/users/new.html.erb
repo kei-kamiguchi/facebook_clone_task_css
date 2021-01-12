@@ -1,3 +1,14 @@
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <div class="user-entry">
   <div class="catch-copy">
     <h1 class="catch-copy-title">facebook</h1>
@@ -19,7 +30,7 @@
       <li><%= f.password_field :password_confirmation, class: "field" %></li>
 
       <li class="form-btn">
-        <%= f.submit "ログイン", class: "btn" %>
+        <%= f.submit "アカウント登録", class: "btn" %>
       </li>
       </ul>
     <% end %>
